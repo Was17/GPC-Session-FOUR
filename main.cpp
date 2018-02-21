@@ -50,6 +50,7 @@ void initFunc() {
    
  // Test de profundidad
     glEnable(GL_DEPTH_TEST);
+    glPolygonOffset(1.0,1.0);
     
  // Modelo de sombreado
     glShadeModel(GL_FLAT);
@@ -102,8 +103,14 @@ void funDisplay() {
     glRotatef(rotY, 0.0f, 1.0f, 0.0f);
     glColor3f(1.0, 1.0, 1.0);
     glutWireCube(2.0);
-    glScalef(3.0f,3.0f,1.0f);
-    drawTriangulo('r');
+    glPushMatrix();
+        glScalef(3.0f,3.0f,1.0f);
+        glEnable(GL_POLYGON_OFFSET_FILL);
+            drawTriangulo('r');
+        glDisable(GL_POLYGON_OFFSET_FILL);
+    glPopMatrix();
+    glScalef(2.0f,2.0f,1.0f);
+    drawTriangulo('c');
     
  // Intercambiamos los buffers
     glutSwapBuffers();
