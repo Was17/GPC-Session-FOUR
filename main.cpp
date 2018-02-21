@@ -108,17 +108,15 @@ void funDisplay() {
 
  // Dibujamos los objetos (M)
     glTranslatef(0.0f, 0.0f, desZ);
-    glRotatef(rotY, 0.0f, 1.0f, 0.0f);
-    glColor3f(1.0, 1.0, 1.0);
+    glRotatef(rotY, 0.0f, 1.0f,1.0f);
+    glColor3f(1.0, 1.0, 0.0);
    
     glPushMatrix();
-    glScalef(2.0f,2.0f,1.0f);
         glEnable(GL_POLYGON_OFFSET_FILL);
         glutWireSphere(1,100,100);
         glDisable(GL_POLYGON_OFFSET_FILL);
     glPopMatrix();
-     glColor3f(0.5, 0.5, 0.5);
-    glScalef(2.0f,2.0f,1.0f);
+     glColor3f(0.5, 0.5, 0.0);
       glutSolidSphere(1,100,10);
     
  // Intercambiamos los buffers
