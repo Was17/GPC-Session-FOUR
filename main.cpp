@@ -53,11 +53,10 @@ void initFunc() {
     
  // Modelo de sombreado
     glShadeModel(GL_FLAT);
-    
- // Culling de las caras traseras
-    glFrontFace(GL_CCW);
-    glEnable(GL_CULL_FACE);
-    glCullFace(GL_BACK);
+       
+ // Modo de rasterizado de las caras
+    glPolygonMode(GL_FRONT,GL_FILL);
+    glPolygonMode(GL_BACK,GL_LINE); 
 
 }
 
