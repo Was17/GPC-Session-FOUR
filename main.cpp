@@ -54,6 +54,11 @@ void initFunc() {
  // Modelo de sombreado
     glShadeModel(GL_FLAT);
     
+ // Culling de las caras traseras
+    glFrontFace(GL_CCW);
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+
 }
 
 void funReshape(int wnew, int hnew) {
@@ -98,6 +103,8 @@ void funDisplay() {
     glRotatef(rotY, 0.0f, 1.0f, 0.0f);
     glColor3f(1.0, 1.0, 1.0);
     glutWireCube(2.0);
+    glScalef(3.0f,3.0f,1.0f);
+    drawTriangulo('r');
     
  // Intercambiamos los buffers
     glutSwapBuffers();
