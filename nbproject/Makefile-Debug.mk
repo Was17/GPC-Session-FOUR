@@ -56,11 +56,11 @@ LDLIBSOPTIONS=-L../../../Downloads/libs/libs/ogl/lib
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gpc.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gpc-session-four.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gpc.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gpc-session-four.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gpc ${OBJECTFILES} ${LDLIBSOPTIONS} -lopengl32 -lglu32 -lglew32 -lfreeglut
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gpc-session-four ${OBJECTFILES} ${LDLIBSOPTIONS} -lopengl32 -lglu32 -lglew32 -lfreeglut
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

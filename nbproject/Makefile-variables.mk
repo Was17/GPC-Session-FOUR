@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=MinGW-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/MinGW-Windows
-CND_ARTIFACT_NAME_Debug=gpc
-CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW-Windows/gpc
+CND_ARTIFACT_NAME_Debug=gpc-session-four
+CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW-Windows/gpc-session-four
 CND_PACKAGE_DIR_Debug=dist/Debug/MinGW-Windows/package
-CND_PACKAGE_NAME_Debug=gpc.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/MinGW-Windows/package/gpc.tar
+CND_PACKAGE_NAME_Debug=gpc-session-four.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/MinGW-Windows/package/gpc-session-four.tar
 # Release configuration
 CND_PLATFORM_Release=MinGW-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/MinGW-Windows
-CND_ARTIFACT_NAME_Release=gpc
-CND_ARTIFACT_PATH_Release=dist/Release/MinGW-Windows/gpc
+CND_ARTIFACT_NAME_Release=gpc-session-four
+CND_ARTIFACT_PATH_Release=dist/Release/MinGW-Windows/gpc-session-four
 CND_PACKAGE_DIR_Release=dist/Release/MinGW-Windows/package
-CND_PACKAGE_NAME_Release=gpc.tar
-CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/gpc.tar
+CND_PACKAGE_NAME_Release=gpc-session-four.tar
+CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/gpc-session-four.tar
 #
 # include compiler specific variables
 #
