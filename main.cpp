@@ -78,15 +78,20 @@ void funDisplay() {
     glLoadIdentity();
     
  // Matriz de Proyección P (Cámara)
-     GLfloat fovy = 50.0f, aspectRatio = (GLfloat)w/(GLfloat)h, nplane = 1.0f, fplane = 20.0f;
--    gluPerspective(fovy,aspectRatio,nplane,fplane);
+    GLfloat fovy = 50.0f, aspectRatio = (GLfloat)w/(GLfloat)h, nplane = 1.0f, fplane = 20.0f;
+    gluPerspective(fovy,aspectRatio,nplane,fplane);
     
  // Para configurar las matrices M y V
     glMatrixMode(GL_MODELVIEW);  
     glLoadIdentity();
     
  // Matriz de Vista V (Cámara)
-    // Aquí cargaremos la matriz V
+    GLfloat eye[3]    = {0.0,  2.0,  0.0};
+    GLfloat center[3] = {0.0,  0.0, -5.0};
+    GLfloat up[3]     = {0.0,  1.0,  0.0};
+    gluLookAt(    eye[0],    eye[1],    eye[2],
+               center[0], center[1], center[2],
+                   up[0],     up[1],     up[2]);
 
  // Dibujamos los objetos (M)
     glTranslatef(0.0f, 0.0f, desZ);
