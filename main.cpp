@@ -59,6 +59,14 @@ void initFunc() {
     glPolygonMode(GL_FRONT,GL_FILL);
     glPolygonMode(GL_BACK,GL_LINE); 
 
+ // Simulación de niebla
+    glEnable(GL_FOG);    
+    glFogi(GL_FOG_MODE,GL_LINEAR);
+    glFogf(GL_FOG_START, 10.0);
+    glFogf(GL_FOG_END  , 20.0);
+    GLfloat colorNiebla[4] = {0.0, 0.0, 0.0, 1.0};
+    glFogfv(GL_FOG_COLOR, colorNiebla);
+
 }
 
 void funReshape(int wnew, int hnew) {
@@ -102,15 +110,16 @@ void funDisplay() {
     glTranslatef(0.0f, 0.0f, desZ);
     glRotatef(rotY, 0.0f, 1.0f, 0.0f);
     glColor3f(1.0, 1.0, 1.0);
-    glutWireCube(2.0);
+   
     glPushMatrix();
-        glScalef(3.0f,3.0f,1.0f);
+    glScalef(2.0f,2.0f,1.0f);
         glEnable(GL_POLYGON_OFFSET_FILL);
-            drawTriangulo('r');
+        glutWireSphere(1,100,100);
         glDisable(GL_POLYGON_OFFSET_FILL);
     glPopMatrix();
+     glColor3f(0.5, 0.5, 0.5);
     glScalef(2.0f,2.0f,1.0f);
-    drawTriangulo('c');
+      glutSolidSphere(1,100,10);
     
  // Intercambiamos los buffers
     glutSwapBuffers();
