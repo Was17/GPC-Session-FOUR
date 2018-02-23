@@ -16,6 +16,11 @@ int h = 500;
 GLfloat desZ = -5.0f;
 GLfloat rotY =  0.0f;
 
+GLfloat altura=2.0f;
+GLfloat anchura=0.0f;
+GLfloat profundidad=0.0f;
+GLfloat fov=0.0f;
+
 int main(int argc, char** argv) {
 
  // Inicializamos GLUT
@@ -79,9 +84,23 @@ void funReshape(int wnew, int hnew) {
     h = hnew;
     
 }
+sphere(){
+    glColor3f(1.0f,1.0f,1.0f);
+     glPushMatrix();
+     glTranslatef(3.0f,1.0f,1.0f);
+     glRotatef(rotY,0.0f,0.0f,1.0f);
+        glEnable(GL_POLYGON_OFFSET_FILL);
+        glutWireSphere(0.3,100,100);
+       
+        glDisable(GL_POLYGON_OFFSET_FILL);
+    glPopMatrix();
+     glColor3f(0.5, 0.5, 0.5);
+      glutSolidSphere(1,100,10);
 
+   
+}
 void funDisplay() {
-    
+   
  // Borramos el buffer de color
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -91,7 +110,7 @@ void funDisplay() {
     glLoadIdentity();
     
  // Matriz de Proyección P (Cámara)
-    GLfloat fovy = 50.0f, aspectRatio = (GLfloat)w/(GLfloat)h, nplane = 1.0f, fplane = 20.0f;
+    GLfloat fovy = 50.0+fov, aspectRatio = (GLfloat)w/(GLfloat)h, nplane = 1.0f, fplane = 20.0f;
     gluPerspective(fovy,aspectRatio,nplane,fplane);
     
  // Para configurar las matrices M y V
@@ -99,8 +118,8 @@ void funDisplay() {
     glLoadIdentity();
     
  // Matriz de Vista V (Cámara)
-    GLfloat eye[3]    = {0.0,  2.0,  0.0};
-    GLfloat center[3] = {0.0,  0.0, -5.0};
+    GLfloat eye[3]    = {0.0f,  2.0f,  0.0f};
+    GLfloat center[3] = {0.0,  0.0, -5.0f};
     GLfloat up[3]     = {0.0,  1.0,  0.0};
     gluLookAt(    eye[0],    eye[1],    eye[2],
                center[0], center[1], center[2],
@@ -108,15 +127,17 @@ void funDisplay() {
 
  // Dibujamos los objetos (M)
     glTranslatef(0.0f, 0.0f, desZ);
-    glRotatef(rotY, 0.0f, 1.0f,1.0f);
-    glColor3f(1.0, 1.0, 0.0);
+    glRotatef(rotY, 0.0f, 1.0f,0.0f);
    
+    sphere();
+     glColor3f(1.0, 1.0, 0.0);
     glPushMatrix();
         glEnable(GL_POLYGON_OFFSET_FILL);
         glutWireSphere(1,100,100);
+       
         glDisable(GL_POLYGON_OFFSET_FILL);
     glPopMatrix();
-     glColor3f(0.5, 0.5, 0.0);
+     glColor3f(0.5, 1.0, 0.0);
       glutSolidSphere(1,100,10);
     
  // Intercambiamos los buffers
@@ -152,16 +173,18 @@ void funKeyboard(int key, int x, int y) {
     
     switch(key) {
         case GLUT_KEY_UP:
-            desZ -= 0.1f;
+            rotY-=5.0f;
             break;
         case GLUT_KEY_DOWN:
-            desZ += 0.1f;
+               
+            rotY+=5.0f;
             break;
         case GLUT_KEY_RIGHT:
-            rotY -= 5.0f;
+         
+            anchura-=0.1f;
             break;
         case GLUT_KEY_LEFT:
-            rotY += 5.0f;
+            anchura += 0.1f;
             break;
         default:
             desZ = -5.0f;  
